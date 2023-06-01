@@ -48,5 +48,9 @@
     "semi": false,
     "singleQuote": true
   },
-  "browserslist": "> 2%, not dead"
+  "browserslist": "> 2%, not dead",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "framer-motion": "^10.12.16"
+  }
 }
