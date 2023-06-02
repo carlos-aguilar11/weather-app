@@ -28,6 +28,8 @@ const WeatherDisplay: React.FC<{ city: string }> = ({ city }) => {
     const celsiusTemperature = temperature - 273.15
     return `${celsiusTemperature.toFixed(1)}°C`
   }
+  const iconCode = weatherData?.weather[0]?.icon
+  const weatherIcon = `https://openweathermap.org/img/w/${iconCode}.png`
 
   return (
     <div key={city}>
@@ -44,7 +46,7 @@ const WeatherDisplay: React.FC<{ city: string }> = ({ city }) => {
           <h2>Weather in {city}</h2>
           <p>Temperature: {formatTemperature(weatherData.main.temp)}</p>
           <p>Humidity: {weatherData.main.humidity}%</p>
-          {/* Add more weather information as needed */}
+          {weatherIcon && <img src={weatherIcon} alt={weatherData[0]?.icon} />}
         </motion.div>
       ) : (
         <p>Failed to fetch weather data.</p>
