@@ -6,6 +6,8 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
+    "predeploy": "npm run build",
     "test": "vitest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
