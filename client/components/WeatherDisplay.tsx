@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
+import { WEATHER_ACCESS_KEY } from '../config'
 
+const apiKey = WEATHER_ACCESS_KEY
 const WeatherDisplay: React.FC<{ city: string }> = ({ city }) => {
   const [weatherData, setWeatherData] = useState<any>(null)
   const [loading, setLoading] = useState<boolean>(true)
@@ -10,7 +12,7 @@ const WeatherDisplay: React.FC<{ city: string }> = ({ city }) => {
     const fetchWeatherData = async () => {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7d9a5d33fbc1530fe7dfd127d77bb56f`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
         )
         setWeatherData(response.data)
         setLoading(false)

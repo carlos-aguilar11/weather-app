@@ -4,8 +4,9 @@ import CitySelection from './CitySelection'
 import WeatherDisplay from './WeatherDisplay'
 import '../main.css'
 import { motion } from 'framer-motion'
+import { PHOTO_ACCESS_KEY } from '../config'
 
-const ACCESS_KEY = 'tivlozErgXCxRMPFIVYkzQkrAhG_fpwD5j7dvzdprV0'
+const apiKey = PHOTO_ACCESS_KEY
 
 const appVariants = {
   hidden: { opacity: 0 },
@@ -35,7 +36,7 @@ function App() {
   const fetchCityImage = async (city: string) => {
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/photos/random?query=${city}&client_id=${ACCESS_KEY}`
+        `https://api.unsplash.com/photos/random?query=${city}&client_id=${apiKey}`
       )
       const { urls } = response.data
       setCityImage(urls.regular)
